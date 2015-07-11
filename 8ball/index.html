@@ -1,0 +1,137 @@
+<html>
+<head>
+
+    <link href="http://fonts.googleapis.com/css?family=Niconne" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet" type="text/css">
+    <title>Magic 8-Ball</title>
+
+    <style>
+
+    body {
+        background-image: url('images/stardust.png');
+    }
+
+    h1 {
+        font-family: 'Niconne', cursive;
+        font-size: 82px;
+        text-align: center;
+        margin: 0;
+        color: white;
+    }
+
+    h2 {
+        font-size: 80px;
+        text-align: center;
+        padding-top: 8px;
+        font-family: courier;
+        margin-bottom: 40px;
+    }
+
+
+    p {
+        font-family: 'Rokkitt', serif;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .container {
+        background-image: url('images/zwartevilt.png');
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid white;
+        border-radius: 150px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .eightball {
+        background-color: white;
+        height: 110px;
+        width: 110px;
+        border-radius: 55px;
+        margin-left: 100px;
+        margin-top: -25px;
+    }
+
+    #message {
+        color: white;
+        font-size: 27px;
+    }
+
+    #ask-button {
+        border-radius:28px;
+        border: 1px solid #4B1C54;
+        display: inline-block;
+        font-family: Arial;
+        font-size: 17px;
+        padding: 16px 31px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        background-color: white;
+        transition:.5s ease-in-out;
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    }
+
+    #ask-button:hover {
+        background-color: #4B1C54;
+        color: white;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Magic 8 Ball</h1>
+
+    <p>Ask the magic 8ball your question</p>
+
+    <div class="container">
+        <div class="eightball">
+            <h2>8</h2>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <center>
+        <button class="ask-button">Shake</button>
+    </center>
+
+    <script>
+        var messages = [];
+        messages[0] = 'No';
+        messages[1] = 'Not today';
+        messages[2] = 'It is decidedly so';
+        messages[3] = 'Without a doubt';
+        messages[4] = 'Yes definitely';
+        messages[5] = 'You may rely on it';
+        messages[6] = 'As I see it yes';
+        messages[7] = 'Most likely';
+        messages[8] = 'Outlook good';
+        messages[9] = 'Signs point to yes';
+        messages[10] = 'Reply hazy try again';
+        messages[11] = 'Ask again later';
+        messages[12] = 'Better not tell you now';
+
+        function displayFortune() {
+            var randomNumber = Math.floor(Math.random() * 13);
+            document.getbyid('message').innerHTML =  messages[randoNum];
+        }
+
+    </script>
+
+    <!-- The code works past this point, our mystics identified the bug is above this line -->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        $('#ask-button').click(function(){
+            $('.container').effect('shake', {times: 3}, 800);
+            displayFortune();
+        });
+    });
+    </script>
+</body>
+</html>
